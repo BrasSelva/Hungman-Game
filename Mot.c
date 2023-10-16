@@ -3,7 +3,7 @@
 #define Mot_H
 #define MAX_TRIES 7// Nombre maximum d'essais
 
-// Déclarez cette fonction au début de votre code pour la rendre accessible aux autres fonctions.
+// Dï¿½clarez cette fonction au dï¿½but de votre code pour la rendre accessible aux autres fonctions.
 void Replay() {
 	char choix;
 
@@ -12,17 +12,17 @@ void Replay() {
 	scanf_s(" %c", &choix);
 
 	if (choix == 'O' || choix == 'o') {
-		// Si le joueur veut rejouer, appelez la fonction Game pour démarrer une nouvelle partie.
+		// Si le joueur veut rejouer, appelez la fonction Game pour dï¿½marrer une nouvelle partie.
 		Game();
 	}
 	else if (choix == 'N' || choix == 'n') {
 		printf("Thank for playing ! Good bye.\n");
-		//ExitApp(); // Vous pouvez également ajouter un appel à la fonction ExitApp pour quitter l'application ici.
+		//ExitApp(); // Vous pouvez ï¿½galement ajouter un appel ï¿½ la fonction ExitApp pour quitter l'application ici.
 	}
 	else {
-		// Réponse non valide, redemandez.
+		// Rï¿½ponse non valide, redemandez.
 		printf("Answer incorrect. Please answer by Y(yes) or N(no)\n");
-		Replay(); // Appel récursif pour redemander la réponse.
+		Replay(); // Appel rï¿½cursif pour redemander la rï¿½ponse.
 	}
 }
 
@@ -99,14 +99,14 @@ const char* motsSecrets[] = {
 };
 const int nombreDeMots = sizeof(motsSecrets) / sizeof(motsSecrets[0]);
 
-// Fonction pour choisir un mot secret aléatoire
+// Fonction pour choisir un mot secret alï¿½atoire
 const char* choisirMotSecret() {
 	srand(time(NULL));
 	int indice = rand() % nombreDeMots;
 	return motsSecrets[indice];
 }
 
-// Fonction pour afficher le mot partiel avec les lettres devinées
+// Fonction pour afficher le mot partiel avec les lettres devinï¿½es
 void afficherMotPartiel(const char* motSecret, const char* lettresDevinees) {
 	for (int i = 0; i < strlen(motSecret); i++) {
 		if (strchr(lettresDevinees, motSecret[i]) != NULL) {
@@ -129,10 +129,10 @@ void Startup() {
 void Game() {
 	const char* motSecret = choisirMotSecret();
 	int longueurMot = strlen(motSecret);
-	char lettresDevinees[26]; // Tableau pour stocker les lettres devinées
+	char lettresDevinees[26]; // Tableau pour stocker les lettres devinï¿½es
 	int tries = 0;
 
-	memset(lettresDevinees, 0, sizeof(lettresDevinees)); // Initialiser le tableau de lettres devinées
+	memset(lettresDevinees, 0, sizeof(lettresDevinees)); // Initialiser le tableau de lettres devinï¿½es
 
 	printf("Welcome to the hungman game !\n");
 
@@ -144,13 +144,13 @@ void Game() {
 		printf("Tape 2 to quit \n");
 		printf("Enter a letter : \n");
 
-		//Affiche le pendu au fur et à mesure des essais
+		//Affiche le pendu au fur et ï¿½ mesure des essais
 
 		if (tries > 0) {
 			printf("Lost :\n");
 			afficherPendu(tries);
 		}
-		// Méthode pour pouvoir quitter le jeu pendant le jeu 
+		// Mï¿½thode pour pouvoir quitter le jeu pendant le jeu 
 
 		int nb;
 		scanf_s(" %d", &nb);
@@ -164,16 +164,16 @@ void Game() {
 
 
 
-		// Vérifier si la lettre a déjà été devinée
+		// Vï¿½rifier si la lettre a dï¿½jï¿½ ï¿½tï¿½ devinï¿½e
 		if (strchr(lettresDevinees, lettre) != NULL) {
 			printf("You've already guessed this letter. Try again.\n");
 			continue;
 		}
 
-		// Ajouter la lettre aux lettres devinées
+		// Ajouter la lettre aux lettres devinï¿½es
 		lettresDevinees[strlen(lettresDevinees)] = lettre;
 
-		// Vérifier si la lettre est dans le mot secret
+		// Vï¿½rifier si la lettre est dans le mot secret
 		if (strchr(motSecret, lettre) != NULL) {
 			printf("Good letter!\n");
 		}
@@ -182,7 +182,7 @@ void Game() {
 			tries++;
 		}
 
-		// Vérifier si le joueur a deviné le mot complet
+		// Vï¿½rifier si le joueur a devinï¿½ le mot complet
 		int motComplet = 1;
 		for (int i = 0; i < longueurMot; i++) {
 			if (strchr(lettresDevinees, motSecret[i]) == NULL) {
@@ -197,12 +197,12 @@ void Game() {
 		}
 	}
 
-	// Si le nombre d'essai est à 0
+	// Si le nombre d'essai est ï¿½ 0
 
 	if (tries >= MAX_TRIES) {
 		printf("\n You've exhausted all your attempts. The secret word was : %s\n", motSecret);
 	}
-	Replay(); //appelle à la fonction game
+	Replay(); //appelle ï¿½ la fonction game
 	return 0;
 }
 
@@ -215,7 +215,7 @@ void ExitApp() {
 
 }
 
-// Fonction qui sert à guider le joueur
+// Fonction qui sert ï¿½ guider le joueur
 
 void MainMenu() {
 	printf("-----Main Menu----- \n \n");
@@ -234,7 +234,7 @@ void MainMenu() {
 	enum MenuButtons MyMenuButtons = MenuChoice;
 	scanf_s("%d", &MenuChoice);
 
-	// Appelle à la fonction 
+	// Appelle ï¿½ la fonction 
 
 	switch (MenuChoice)
 	{
@@ -252,10 +252,3 @@ void MainMenu() {
 	}
 
 }
-
-
-
-
-
-
-
