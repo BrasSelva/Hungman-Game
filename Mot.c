@@ -14,7 +14,6 @@ struct HangmanGame {
     int tries;
 };
 
-
 //Demarrer le jeu
 void Startup() {
     printf (" Lancer le jeu ") ;
@@ -22,7 +21,6 @@ void Startup() {
 
 //Prototype de la fonction Replay
 void Replay(struct HangmanGame* game);
-
 
 void afficherMotPartiel(const struct HangmanGame* game) {
     for (int i = 0; i < game->longueurMot; i++) {
@@ -43,7 +41,6 @@ const char* choisirMotSecret(const char* motsSecrets[], int nombreDeMots) {
     int indice = rand() % nombreDeMots;
     return motsSecrets[indice];
 }
-
 
 void initialiserPartie(struct HangmanGame* game, const char* motsSecrets[], int nombreDeMots) {
     game->motSecret = choisirMotSecret(motsSecrets, nombreDeMots);
@@ -185,7 +182,6 @@ void MainMenu() {
         break;
     }
 }
-
 
 void Replay(struct HangmanGame* game) {
     char choix;
