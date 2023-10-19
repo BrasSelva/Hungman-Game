@@ -1,4 +1,7 @@
-﻿#include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 #include "Mot.h"
 #define Mot_H
 #define MAX_TRIES 7// Nombre maximum d'essais
