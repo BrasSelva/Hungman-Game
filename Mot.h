@@ -4,9 +4,8 @@
 void Startup();
 void MainMenu();
 void ExitApp();
-void Game();
-void Replay();
-
+void Game(struct HangmanGame* game);
+void Replay(struct HangmanGame* game);
 
 
 #endif Mot_H
